@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StreamNix</title>
+    <script src="/js/knockout.js"></script>
+    <script src="/js/scroll.js"></script>
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <!-- <link rel="stylesheet" href="../CSS/search.css">    -->
+</head>
+<body>
+<div id="webpage">
+    <div class="navbar">
+        <div id="title">StreamNix</div>
+        <div id="rightSideNavbar">
+            <form action="javascript:" class="search-bar">
+                <input type="search" name="search" pattern=".*\S.*" required>
+                <button class="search-btn" type="submit">
+                    <span>Search</span>
+                </button>
+            </form>
+            <div id="pfp"><img id="pfp_class" src="../Resources/aheil_face.png"></div>
+        </div>
+    </div>
+
+
+
+    <div class="movie-app">
+
+
+        <div data-bind="with: showcaseMovie">
+            <div class="movie-showcase-panel" data-bind="style: { 'background-image': 'url(' + imgPath + ')' }">
+                <div class="movie-showcase-textbox">
+                    <p class="movie-showcase-title" data-bind="text: title() + ' (' + year() + ')'"></p>
+                    <p class="movie-showcase-description" data-bind="text: description"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="seperator"></div>
+
+        <div class="movie-slider-topic">Neue Filme</div>
+        <div class="movie-slider" data-bind="foreach: newReleaseMovies" id="movie-slider-newReleases">
+            <div class="movie-panel" id="newReleases">
+                <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }">
+            </div>
+        </div>
+        <button onclick="scrollL('#movie-slider-newReleases')" class="scroll-button arrow-left">
+            <img src="../Resources/Icons/chevron-left-solid.svg" width="75" height="100">
+        </button>
+        <button onclick="scrollR('#movie-slider-newReleases')" class="scroll-button arrow-right">
+            <img src="../Resources/Icons/chevron-right-solid.svg" width="75" height="100">
+        </button>
+
+        <div class="seperator"></div>
+
+        <div class="movie-slider-topic">Beliebte Filme</div>
+        <div class="movie-slider" data-bind="foreach: popularMovies" id="movie-slider-popular">
+            <div class="movie-panel" id="popularMovies">
+                <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }">
+            </div>
+        </div>
+        <button onclick="scrollL('#movie-slider-popular')" class="scroll-button arrow-left">
+            <img src="../Resources/Icons/chevron-left-solid.svg" width="75" height="100">
+        </button>
+        <button onclick="scrollR('#movie-slider-popular')" class="scroll-button arrow-right">
+            <img src="../Resources/Icons/chevron-right-solid.svg" width="75" height="100">
+        </button>
+
+        <div class="seperator"></div>
+
+        <div class="movie-slider-topic">Nochmal anschauen</div>
+        <div class="movie-slider" data-bind="foreach: newReleaseMovies" id="movie-slider-watchAgain">
+            <div class="movie-panel" id="watchAgain">
+                <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }">
+            </div>
+        </div>
+        <button onclick="scrollL('#movie-slider-watchAgain')" class="scroll-button arrow-left">
+            <img src="../Resources/Icons/chevron-left-solid.svg" width="75" height="100">
+        </button>
+        <button onclick="scrollR('#movie-slider-watchAgain')" class="scroll-button arrow-right">
+            <img src="../Resources/Icons/chevron-right-solid.svg" width="75" height="100">
+        </button>
+
+    </div>
+
+</div>
+<script type='text/javascript' src='/js/modelview.js'></script>
+</body>
+</html>

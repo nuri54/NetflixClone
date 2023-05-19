@@ -1,0 +1,143 @@
+body {
+    background-color: #121212;
+    color: white;
+    margin: 0 0 0 0;
+    overflow-x: hidden;
+}
+.movie-slider::-webkit-scrollbar{
+    display: none;
+
+}
+
+body::-webkit-scrollbar {
+    display: none;
+    /*background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);*/
+    /*border-radius: 4px;*/
+}
+
+.navbar {
+    background-color: #050505;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-content: space-between;
+    align-items: center;
+    font-family: Calibri, serif;
+}
+
+#rightSideNavbar {
+    display: flex;
+    align-items: center;
+}
+
+#title {
+    padding-left: 20px;
+    margin-right: auto;
+    font-size: 50px;
+}
+
+#pfp_class {
+    float: right;
+    padding-right: 20px;
+    padding-left: 100px;     /* Suchleiste link vom Bild wegbewegen */
+    height: 50px;
+    width:  50px;
+}
+
+.movie-app {
+    overflow-y: auto;
+}
+
+
+.movie-panel img {
+    display: inline-block;
+    object-fit: cover;
+    height: 200px;
+    width: 300px;
+    border-radius: 25px;
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.movie-panel img:hover {
+    z-index: 1;
+    transform: scale(1.2);
+}
+
+.movie-showcase-panel img:hover {
+    z-index: 1;
+    transform: scale(1.2);
+}
+
+
+.movie-slider {
+    overflow-x: scroll;
+    display: flex;
+    margin-left: 20px;
+    scroll-snap-type: x mandatory;
+}
+
+.search-bar {
+
+}
+
+.movie-slider-topic {
+    margin-left: 1vw;
+    font-size: 26pt;
+    margin-bottom: 5px;
+    font-family: Calibri, serif;
+}
+
+.seperator {
+    height: 35px;
+}
+
+.movie-showcase-panel {
+    position: relative;
+    background-position: top;
+    height: 40vh;
+    padding: 20px;
+    color: #ffffff;
+    background-size: 100% auto; /* width and height, can be %, px or whatever. */
+}
+
+.movie-showcase-textbox {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(128, 128, 128, 0.3);
+    padding: 10px;
+}
+
+.movie-showcase-title {
+    margin: 0;
+    color: #ffffff;
+    font-family: Calibri, serif;
+    font-size: 50pt;
+}
+.movie-showcase-description {
+    margin: 0;
+    color: #ffffff;
+    font-family: Calibri, serif;
+    font-size: 20pt;
+}
+
+.arrow-right {
+    border-radius: 20px;
+    float: right;
+    position: relative;
+    margin-top: -175px;
+    margin-right: 40px;
+    background-color: rgba(255, 255, 255, 0.67)
+}
+
+.arrow-left {
+    border-radius: 20px;
+    float: left;
+    position: relative;
+    margin-top: -175px;
+    margin-left: 20px;
+    background-color: rgba(255, 255, 255, 0.67)
+}
