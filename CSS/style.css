@@ -3,10 +3,10 @@ body {
     color: white;
     margin: 0 0 0 0;
     overflow-x: hidden;
+    padding-bottom: 130px;
 }
 .movie-slider::-webkit-scrollbar{
     display: none;
-
 }
 
 body::-webkit-scrollbar {
@@ -48,7 +48,6 @@ body::-webkit-scrollbar {
     overflow-y: auto;
 }
 
-
 .movie-panel img {
     display: inline-block;
     object-fit: cover;
@@ -64,6 +63,8 @@ body::-webkit-scrollbar {
 .movie-panel img:hover {
     z-index: 1;
     transform: scale(1.2);
+    opacity: 0.4;
+    filter: alpha(opacity=40);
 }
 
 .movie-showcase-panel img:hover {
@@ -77,6 +78,7 @@ body::-webkit-scrollbar {
     display: flex;
     margin-left: 20px;
     scroll-snap-type: x mandatory;
+    min-height: 240px;
 }
 
 .search-bar {
@@ -130,7 +132,13 @@ body::-webkit-scrollbar {
     position: relative;
     margin-top: -175px;
     margin-right: 40px;
-    background-color: rgba(255, 255, 255, 0.67)
+    transition: transform 0.3s;
+    background-color: rgba(255, 255, 255, 0.67);
+}
+
+.arrow-right:hover {
+    z-index: 1;
+    transform: scale(1.1);
 }
 
 .arrow-left {
@@ -139,5 +147,98 @@ body::-webkit-scrollbar {
     position: relative;
     margin-top: -175px;
     margin-left: 20px;
-    background-color: rgba(255, 255, 255, 0.67)
+    transition: transform 0.3s;
+    background-color: rgba(255, 255, 255, 0.67);
+}
+
+.arrow-left:hover {
+    z-index: 1;
+    transform: scale(1.1);
+}
+
+
+
+.movie {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.preview-info {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 100%;
+    color: #fff;
+    padding: 10px;
+    display: block;
+    z-index: 1;
+    border-top: none;
+    font-family: Calibri, serif;
+}
+
+.movie .image-container {
+    position: relative;
+}
+
+.movie:hover .preview-info {
+    display: block;
+}
+
+#detailed-name {
+    font-size: 32px;
+    margin-left: 30px;
+}
+
+#detailed-name-von,
+#detailed-year {
+    font-size: 20px;
+}
+
+.detailed-description-class {
+    border-radius: 15px;
+    display: inline-block;
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    float: left;
+    margin-left: 150px;
+}
+
+.detailed-description-class p {
+    height: auto;
+    margin: 15px;
+}
+
+#detailed-image {
+    float: right;
+    max-height: 400px;
+    max-width: 400px;
+    padding-right: 150px;
+    margin-top: -205px;
+}
+
+#detailed-regisseur,
+#detailed-actors,
+#detailed-description-text {
+    margin-left: 100px;
+    font-size: 24px;
+}
+
+#detailed-regisseur-input,
+#detailed-actors-input,
+#detailed-description{
+    font-size: 20px;
+}
+
+#detailed-back {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    border: none;
+    background-color: rgba(18, 18, 18, 0);
+    transition: transform 0.2s;
+}
+
+#detailed-back:hover {
+    transform: rotate(-45deg);
 }

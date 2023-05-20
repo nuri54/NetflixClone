@@ -1,7 +1,6 @@
 function StreamnixViewModel() {
     var self = this;
 
-    
     self.newReleaseMovies = ko.observableArray([
         new Movie("Minions", 2015, "Pierre Coffin, Kyle Balda", ["Sandra Bullock", "Jon Hamm", "Michael Keaton"], "Die gelben Minions erleben ein lustiges Abenteuer und suchen nach einem neuen Anführer, dem sie dienen können."),
         new Movie("Sharknado", 2013, "Anthony C. Ferrante", ["Tara Reid", "Cassie Scerbo", "Jasson Smmons"], "Eine Gruppe von Menschen muss sich gegen einen gewaltigen Tornado voller Haie zur Wehr setzen."),
@@ -33,11 +32,30 @@ function StreamnixViewModel() {
     ]);
 
 
-    self.watchAgainMovies = ko.observableArray([
-
-    ])
+    self.watchAgainMovies = ko.observableArray([])
 
     self.showcaseMovie = this.newReleaseMovies()[0];
+
+    self.chosenMovie = ko.observable()
+
+
+    self.goBack = function () {
+        document.getElementById('movie-app').style.display = 'block';
+        document.getElementById('detailed-movie-view').style.display = 'none';
+    };
+
+    self.goToMovie = function (movie) {
+        self.chosenMovie(movie)
+        document.getElementById('detailed-movie-view').style.display = 'block';
+        document.getElementById('movie').style.display = 'none';
+
+
+        if (self.watchAgainMovies().indexOf(movie) === -1) {
+            self.watchAgainMovies.unshift(movie);
+            self.watchAgainMovies.valueHasMutated();
+        }
+
+    };
 }
 
 function Movie(title, year, regisseur, actors, description){
@@ -49,6 +67,7 @@ function Movie(title, year, regisseur, actors, description){
     self.description = ko.observable(description);
     
     self.imgPath = '../Resources/movies/' + title + '.jpg';
+    self.isPreviewVisible = ko.observable(false);
 }
 
 ko.applyBindings(new StreamnixViewModel())

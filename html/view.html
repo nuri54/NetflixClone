@@ -5,6 +5,7 @@
     <title>StreamNix</title>
     <script src="/js/knockout.js"></script>
     <script src="/js/scroll.js"></script>
+
     <link rel="stylesheet" href="../CSS/style.css">
 
     <!-- <link rel="stylesheet" href="../CSS/search.css">    -->
@@ -26,8 +27,7 @@
 
 
 
-    <div class="movie-app">
-
+    <div class="movie-app" id="movie-app" style="display: block">
 
         <div data-bind="with: showcaseMovie">
             <div class="movie-showcase-panel" data-bind="style: { 'background-image': 'url(' + imgPath + ')' }">
@@ -43,7 +43,16 @@
         <div class="movie-slider-topic">Neue Filme</div>
         <div class="movie-slider" data-bind="foreach: newReleaseMovies" id="movie-slider-newReleases">
             <div class="movie-panel" id="newReleases">
-                <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }">
+                <div class="movie">
+                    <div class="image-container" data-bind="css: { 'preview': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); }, mouseleave: function() { isPreviewVisible(false); } }">
+                        <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }, click: $root.goToMovie">
+
+                    </div>
+                    <div class="preview-info" data-bind="visible: isPreviewVisible, css: { 'preview': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); }}">
+                        <h3 data-bind="text: title"></h3>
+                        <p data-bind="text: year"></p>
+                    </div>
+                </div>
             </div>
         </div>
         <button onclick="scrollL('#movie-slider-newReleases')" class="scroll-button arrow-left">
@@ -58,7 +67,7 @@
         <div class="movie-slider-topic">Beliebte Filme</div>
         <div class="movie-slider" data-bind="foreach: popularMovies" id="movie-slider-popular">
             <div class="movie-panel" id="popularMovies">
-                <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }">
+                <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }, click: $root.goToMovie">
             </div>
         </div>
         <button onclick="scrollL('#movie-slider-popular')" class="scroll-button arrow-left">
@@ -71,9 +80,9 @@
         <div class="seperator"></div>
 
         <div class="movie-slider-topic">Nochmal anschauen</div>
-        <div class="movie-slider" data-bind="foreach: newReleaseMovies" id="movie-slider-watchAgain">
+        <div class="movie-slider" data-bind="foreach: watchAgainMovies" id="movie-slider-watchAgain">
             <div class="movie-panel" id="watchAgain">
-                <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }">
+                <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }, click: $root.goToMovie">
             </div>
         </div>
         <button onclick="scrollL('#movie-slider-watchAgain')" class="scroll-button arrow-left">
@@ -84,6 +93,26 @@
         </button>
 
     </div>
+
+
+    <div class="detailed-movie-view" id="detailed-movie-view" style="display: none" data-bind="with: chosenMovie">
+
+        <h2> <span id="detailed-name" data-bind="text: title"> </span> <span id="detailed-name-von">von </span> <span id="detailed-year" data-bind="text: year"></span></h2>
+        <p id="detailed-regisseur">Regisseur: <span id="detailed-regisseur-input" data-bind="text: regisseur"></span> </p>
+        <p id="detailed-actors">Darsteller: <span id="detailed-actors-input" data-bind="text: actors"></span> </p>
+        <p id="detailed-description-text">Beschreibung: </p>
+        <div class="detailed-description-class">
+            <p id="detailed-description"> <span data-bind="text: description"></span> </p>
+        </div>
+        <img id="detailed-image" data-bind="attr: {src: imgPath}">
+        <button id="detailed-back"  data-bind="click: $root.goBack">
+            <img src="../Resources/Icons/go-back.svg" width="50" height="50">
+        </button>
+
+    </div>
+
+
+
 
 </div>
 <script type='text/javascript' src='/js/modelview.js'></script>
