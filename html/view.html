@@ -44,13 +44,14 @@
         <div class="movie-slider" data-bind="foreach: newReleaseMovies" id="movie-slider-newReleases">
             <div class="movie-panel" id="newReleases">
                 <div class="movie">
-                    <div class="image-container" data-bind="css: { 'preview': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); }, mouseleave: function() { isPreviewVisible(false); } }">
+                    <div class="image-container" data-bind="css: { 'preview': isPreviewVisible, 'scale': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); }, mouseleave: function() { isPreviewVisible(false); } }">
                         <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }, click: $root.goToMovie">
                     </div>
-                    <div class="preview-info" data-bind="visible: isPreviewVisible, css: { 'preview': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); }, mouseleave: function() { isPreviewVisible(false); } }">
+                    <div class="preview-info" data-bind="visible: isPreviewVisible, css: { 'preview': isPreviewVisible, 'scale': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); }, mouseleave: function() { isPreviewVisible(false); } }, click: $root.goToMovie">
                         <h3 data-bind="text: title"></h3>
                         <p data-bind="text: year"></p>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -66,7 +67,20 @@
         <div class="movie-slider-topic">Beliebte Filme</div>
         <div class="movie-slider" data-bind="foreach: popularMovies" id="movie-slider-popular">
             <div class="movie-panel" id="popularMovies">
-                <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }, click: $root.goToMovie">
+                <div class="movie">
+                    <div class="image-container" data-bind="css: { 'preview': isPreviewVisible,
+                    'scale': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); },
+                    mouseleave: function() { isPreviewVisible(false); } }">
+
+                        <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }, click: $root.goToMovie">
+                    </div>
+                    <div class="preview-info" data-bind="visible: isPreviewVisible, css: { 'preview': isPreviewVisible,
+                    'scale': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); },
+                     mouseleave: function() { isPreviewVisible(false); } }, click: $root.goToMovie">
+                        <h3 data-bind="text: title"></h3>
+                        <p data-bind="text: year"></p>
+                    </div>
+                </div>
             </div>
         </div>
         <button onclick="scrollL('#movie-slider-popular')" class="scroll-button arrow-left">
@@ -81,7 +95,15 @@
         <div class="movie-slider-topic">Nochmal anschauen</div>
         <div class="movie-slider" data-bind="foreach: watchAgainMovies" id="movie-slider-watchAgain">
             <div class="movie-panel" id="watchAgain">
-                <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }, click: $root.goToMovie">
+                <div class="movie">
+                    <div class="image-container" data-bind="css: { 'preview': isPreviewVisible, 'scale': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); }, mouseleave: function() { isPreviewVisible(false); } }">
+                        <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }, click: $root.goToMovie">
+                    </div>
+                    <div class="preview-info" data-bind="visible: isPreviewVisible, css: { 'preview': isPreviewVisible, 'scale': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); }, mouseleave: function() { isPreviewVisible(false); } }, click: $root.goToMovie">
+                        <h3 data-bind="text: title"></h3>
+                        <p data-bind="text: year"></p>
+                    </div>
+                </div>
             </div>
         </div>
         <button onclick="scrollL('#movie-slider-watchAgain')" class="scroll-button arrow-left">

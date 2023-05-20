@@ -60,18 +60,19 @@ body::-webkit-scrollbar {
     margin-left: 30px;
 }
 
-.movie-panel img:hover {
+
+.movie .image-container {
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.movie .image-container.scale {
     z-index: 1;
     transform: scale(1.2);
     opacity: 0.4;
     filter: alpha(opacity=40);
+    opacity: 0.4;
 }
-
-.movie-showcase-panel img:hover {
-    z-index: 1;
-    transform: scale(1.2);
-}
-
 
 .movie-slider {
     overflow-x: scroll;
@@ -79,6 +80,7 @@ body::-webkit-scrollbar {
     margin-left: 20px;
     scroll-snap-type: x mandatory;
     min-height: 240px;
+    overflow-y: hidden;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
 }
@@ -139,6 +141,7 @@ body::-webkit-scrollbar {
 }
 
 .arrow-right {
+    z-index: 2;
     border-radius: 20px;
     float: right;
     position: relative;
@@ -149,11 +152,12 @@ body::-webkit-scrollbar {
 }
 
 .arrow-right:hover {
-    z-index: 1;
+    z-index: 3;
     transform: scale(1.1);
 }
 
 .arrow-left {
+    z-index: 2;
     border-radius: 20px;
     float: left;
     position: relative;
@@ -164,7 +168,7 @@ body::-webkit-scrollbar {
 }
 
 .arrow-left:hover {
-    z-index: 1;
+    z-index: 3;
     transform: scale(1.1);
 }
 

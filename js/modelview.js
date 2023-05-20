@@ -49,7 +49,7 @@ function StreamnixViewModel() {
     };
 
     self.goToMovie = function (movie) {
-        self.chosenMovie(movie)
+        self.chosenMovie(movie);
         document.getElementById('detailed-movie-view').style.display = 'block';
         document.getElementById('movie-app').style.display = 'none';
 
