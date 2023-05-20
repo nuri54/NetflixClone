@@ -79,10 +79,22 @@ body::-webkit-scrollbar {
     margin-left: 20px;
     scroll-snap-type: x mandatory;
     min-height: 240px;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
 }
 
 .search-bar {
 
+}
+
+.search-btn {
+    border-radius: 7px;
+    /*background-color: #a2acab;*/
+    /*background-color: #404040;*/
+    background-color: #334956;
+    padding: 3px;
+    border: none;
+    color: white;
 }
 
 .movie-slider-topic {

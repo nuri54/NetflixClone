@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="../CSS/style.css">
 
-    <!-- <link rel="stylesheet" href="../CSS/search.css">    -->
+<!--     <link rel="stylesheet" href="../CSS/search.css">-->
 </head>
 <body>
 <div id="webpage">
@@ -46,9 +46,8 @@
                 <div class="movie">
                     <div class="image-container" data-bind="css: { 'preview': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); }, mouseleave: function() { isPreviewVisible(false); } }">
                         <img alt="$data.imgPath" data-bind="attr: { src: $data.imgPath }, click: $root.goToMovie">
-
                     </div>
-                    <div class="preview-info" data-bind="visible: isPreviewVisible, css: { 'preview': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); }}">
+                    <div class="preview-info" data-bind="visible: isPreviewVisible, css: { 'preview': isPreviewVisible }, event: { mouseenter: function() { isPreviewVisible(true); }, mouseleave: function() { isPreviewVisible(false); } }">
                         <h3 data-bind="text: title"></h3>
                         <p data-bind="text: year"></p>
                     </div>
