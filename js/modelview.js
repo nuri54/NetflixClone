@@ -40,14 +40,14 @@ function StreamnixViewModel() {
 
 
     self.goBack = function () {
-        document.getElementById('movie-app').style.display = 'block';
+        document.getElementById('webpage').style.display = 'block';
         document.getElementById('detailed-movie-view').style.display = 'none';
     };
 
     self.goToMovie = function (movie) {
         self.chosenMovie(movie);
         document.getElementById('detailed-movie-view').style.display = 'block';
-        document.getElementById('movie-app').style.display = 'none';
+        document.getElementById('webpage').style.display = 'none';
 
 
         if (self.watchAgainMovies().indexOf(movie) === -1) {
