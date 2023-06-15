@@ -68,6 +68,9 @@ function Movie(title, year, regisseur, actors, description){
     
     self.imgPath = '../Resources/movies/' + title + '.jpg';
     self.isPreviewVisible = ko.observable(false);
+
+
+    self.actorsList = self.actors().join(", ")
 }
 
 ko.applyBindings(new StreamnixViewModel())
