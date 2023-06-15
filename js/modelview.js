@@ -1,7 +1,3 @@
-
-//TODO: overlap bei detailansicht
-//TODO: hover effect (peter)
-
 function StreamnixViewModel() {
     var self = this;
 
